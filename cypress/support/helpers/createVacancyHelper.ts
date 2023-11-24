@@ -10,7 +10,7 @@ export const URLs = {
 export let jobTitleId:any;
 //https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/vacancies
 export default class createVacancy{
-    static createNewVacancyAPI(empID:Number,i:any){
+    static createNewVacancyAPI(empID:Number){
        return cy.createNewVacancy(URLs.newVacancy,CreateVacancyInit.initCreateVacancy(empID)).then((newVacancy)=>{
             console.log(newVacancy)
             vacancyId = JSON.parse( JSON.stringify(newVacancy.data.id))

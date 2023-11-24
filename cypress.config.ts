@@ -16,6 +16,7 @@ module.exports = defineConfig({
       allureReuseAfterSpec: true,
       download_dir: "./cypress/downloads",
     },
+    download_dir: "./cypress/downloads",
     allureResultsPath: "allure-results",
     allure:true,
     videosFolder: "allure-results/",

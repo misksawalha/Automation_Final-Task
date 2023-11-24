@@ -4,10 +4,10 @@ import { vacancyVar } from "../variable/createVacancy.var";
 import { jobTitleId } from "../../support/helpers/jobTitleHelper";
 
 export default class CreateVacancyInit {
-    static initCreateVacancy(empID:Number,i:any): CreateVacancyPayload {
+    static initCreateVacancy(empID:Number): CreateVacancyPayload {
         let createCreateVacancyPayload: CreateVacancyPayload = {
             Vacancy: {
-                name: vacancyVar.vacancyname+i,
+                name: vacancyVar.vacancyname,
                 jobTitleId: jobTitleId,
                 employeeId: empID,
                 numOfPositions: null,

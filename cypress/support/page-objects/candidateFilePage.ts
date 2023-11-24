@@ -91,11 +91,16 @@ export default class candidateFilePage {
         this.elements.saveBtn().click({ force: true })
         this.elements.loader().should('not.exist')
         this.elements.switchBtn().click({force:true})
-        this.elements.replaceBtn().click({ force: true })
-        this.elements.fileInput().selectFile('cypress/fixtures/cucumber.pdf', { force: true })
+        // this.elements.replaceBtn().click({ force: true })
+        this.elements.fileInput().selectFile('cypress/fixtures/test.txt', { force: true })
         this.elements.hireSave().click({force:true})
         this.elements.loader().should('not.exist')
        
     }
+    verifyFileContent(filePath: string) {
+        cy.readFile(filePath).then((fileContent) => {
+          expect(fileContent).to.equal('misk sawallha');
+        });
+      }
 }
 //cy.get('.oxd-button--success')

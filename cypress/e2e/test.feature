@@ -1,14 +1,24 @@
-Feature: Candidate Interview Result Verification (Pass/Fail)
+Feature: Verify that the user can upload a txt file for Application Initiated and Hired statuses
 
   Background:
     Given Admin navigates to orangeHRM website and logs in
-    Given creates 2 new vacancies
+    And creates a new job title via API
+    And adds an employee
+    And creates a new vacancy
+    And creates a new candidate and advances the candidate through the hiring process until "Hired" status
 
-  Scenario: Admin transitions candidate status to "Interview Passed"
-    When Admin changes the candidate status to pass
-    Then the candidate status should be updated to "Status: Interview Passed"
+  Scenario: Verify user can upload a txt file for Application Initiated
+    When Admin finds the vacancy 
+    And Admin initiates candidate
+    # And Admin finds the vacancy to download the file
+    Then the downloaded file content should match the uploaded data
 
-  Scenario: Admin transitions candidate status to "Interview Failed"
-  
-    When Admin changes the candidate status to reject
-    Then the candidate status should be updated to "Interview Failed"
+  Scenario: Verify user can upload a txt file for Hired
+    When Admin finds the vacancy 
+    And Admin shortlists the candidate
+    And Admin schedules an interview
+    And Admin passes the interview
+    And Admin offers the job
+    And Admin hires the candidate
+    And Admin finds the vacancy to download the file
+    # Then the downloaded file content should match the uploaded data
